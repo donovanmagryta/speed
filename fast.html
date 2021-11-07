@@ -1,4 +1,5 @@
-function calculateSpeed(t1, lat1, lng1, t2, lat2, lng2) {
+<script>
+  function calculateSpeed(t1, lat1, lng1, t2, lat2, lng2) {
   // From Caspar Kleijne's answer starts
   /** Converts numeric degrees to radians */
   if (typeof(Number.prototype.toRad) === "undefined") {
@@ -28,6 +29,8 @@ function firstGeolocationSuccess(position1) {
   navigator.geolocation.getCurrentPosition(
     function (position2) {
       var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
+   console.log(speed);
     }
 }
 navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+</script>

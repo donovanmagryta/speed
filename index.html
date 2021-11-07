@@ -21,7 +21,11 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = position.coords.speed;
+  var speeed = position.coords.speed;
+  var meterspersecond = Math.floor(speeed);
+  var milesperhour =  Math.round(meterspersecond * 3600 / 1610.3*1000)/1000;
+  x.innerHTML = milesperhour;
+  //window.location = 'http://'+location.hostname+'/speed/mileperhour'">';
 }
 </script>
 

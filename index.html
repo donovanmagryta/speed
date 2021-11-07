@@ -1,0 +1,42 @@
+<html>
+
+<script>
+function initGeo() {
+    navigator.geolocation.watchPosition(
+        geosuccess,
+        geofailure,
+        {
+            enableHighAccuracy:true,
+            maximumAge:30000,
+            timeout:20000
+        }
+    );
+
+    //moveSpeed(30);
+    //moveCompassNeedle(56);
+}
+
+var count = 0;
+function geosuccess(event) {
+
+    $("#debugoutput").text("geosuccess: " + count++ + " : " + event.coords.heading + ":" + event.coords.speed);
+
+    var heading = event.coords.heading;
+    var speed = event.coords.speed;
+
+    if (heading != null && speed !=null && speed > 0) {
+       moveCompassNeedle(heading);
+    }
+
+    if (speed != null) {
+        // update the speed
+        //moveSpeed(speed);
+$("#toptitle").text(
+speed);
+
+    }
+}
+
+</script>
+    <h1 id="toptitle">speed</h1>
+</html>
